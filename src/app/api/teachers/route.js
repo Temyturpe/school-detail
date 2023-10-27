@@ -80,7 +80,7 @@ export async function POST(request) {
 }
 
 
-
+// get
 export async function GET() {
     try {
         if (fs.existsSync(dataFilePath)) {
@@ -95,6 +95,7 @@ export async function GET() {
     }
 }
 
+// delete
 export async function DELETE(request) {
     try {
         const searchParams = request.nextUrl.searchParams;
