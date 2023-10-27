@@ -30,7 +30,7 @@ export default function StudentsForm() {
      setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:9000/api/students', {
+      const response = await fetch('/api/students', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

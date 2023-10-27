@@ -10,7 +10,7 @@ export default function Students() {
   const [studentData, setStudentData] = useState([]);
    const getStudentData  = async () =>{
     try {
-        const response = await fetch('http://localhost:9000/api/students');  
+        const response = await fetch('/api/students');  
         const records = await response.json();
         setStudentData(records);
     } catch (error) {
