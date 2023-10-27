@@ -31,7 +31,7 @@ export default function TeacherForm() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:9000/api/teachers', {
+      const response = await fetch('/api/teachers', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

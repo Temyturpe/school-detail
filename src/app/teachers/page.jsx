@@ -9,7 +9,7 @@ export default function Teachers() {
    const [teacherData, setTeacherData] = useState([]);
    const getTeacherData  = async () =>{
     try {
-        const response = await fetch('http://localhost:9000/api/teachers');  
+        const response = await fetch('/api/teachers');  
         const records = await response.json();
         setTeacherData(records);
     } catch (error) {
