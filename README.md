@@ -17,6 +17,7 @@ The teacher form page contains the form where the teacher input their details an
 
 First, run the development server:
 
+```bash
 npm run dev
 # or
 yarn dev
