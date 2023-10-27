@@ -4,17 +4,17 @@ import fs from 'fs';
 const dataFilePath = "students.json"
 
 // post
-
 export async function POST(request){
     const requireField = ['name', 'nationalId', 'surname', 'studentNumber']
     try {
         // getting request body
         const body = await request.json();
-        // validating request body
+        // validating request body/fields
         for(const key of requireField){
             if(!body[key]) return NextResponse.json({message: `${key} is required`}, {status: 400});
            
         }
+        // Validate age
         if(body["DOB"]){
             const birthYear = body["DOB"].split('/')[2];
             const currentYear = new Date().getFullYear();
@@ -22,10 +22,16 @@ export async function POST(request){
         }
         
         // return NextResponse.json({record}, {status: 200})
+
+         // Check if the data file exists
         if (fs.existsSync(dataFilePath)){
             const students = JSON.parse(fs.readFileSync(dataFilePath));
             // return NextResponse.json(students, {status: 200})
+
+            // generate random id numbers
             const randomNumber = Math.floor(Math.random() * (10000 - 1 + 1)) + 1;
+
+
             const newStudent = {id: randomNumber, nationalId: body.nationalId, name: body.name, surname: body.surname, studentNumber: body.studentNumber}
             if (body.DOB){
                 newStudent.DOB = body.DOB
